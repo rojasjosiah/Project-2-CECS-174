@@ -15,3 +15,14 @@ so you are working with the most current edits.
 
 
 Type below here in order to send a message you wish to be seen by all group members:
+
+It was mentioned we might want to use other software for real-time
+code updates. This is a possibility, although I am more inclined to 
+stick with using GitHub, as this is a tool that is not only industry 
+standard and therefore a tool that we will want to familiarize ourselves 
+with over the course of our college career, but is also a place to store 
+all our code samples so that future employers will be able to see we 
+worked, collaboratively or not, on coding projects before. Also I feel as 
+though we will hardly ever encounter a time when multiple people are 
+editting the project simulatneously. If you disagree, feel free to let me 
+know. 						Josiah Rojas
