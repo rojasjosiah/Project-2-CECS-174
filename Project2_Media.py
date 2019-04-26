@@ -3,7 +3,7 @@ Project 2 - Group 2
 CECS 174 TuTh 12:30
 
 Josiah Rojas: (Project Manager)
-
+    - Created base class Media and sub classes Book and Video
 April Picato:
 
 Philip Ramirez:
