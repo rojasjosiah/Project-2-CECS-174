@@ -16,6 +16,7 @@ Miguel Zavala:
 
 # Check README.md file for PSA and personal comments
 
+
 # overarching media class, parent for classes Book and Video
 class Media:
     def __init__(self, title, author, publisher):
