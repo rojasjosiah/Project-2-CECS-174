@@ -14,18 +14,7 @@ Miguel Zavala:
 
 '''
 
-'''
-PSA: Be sure to include detailed comments with all new code
-and code changes. It is extremely difficult to understand 
-other people's code and will save everyone time and effort
-if everything is well labelled. Even little things! It will 
-also help you remember what you were doing if you work over 
-the course of multiple days. 
-
-Additionally, be sure to use git pull before you start working 
-so you are working with the most current edits. 
-'''
-
+# Check README.md file for PSA and personal comments
 
 # overarching media class, parent for classes Book and Video
 class Media:
