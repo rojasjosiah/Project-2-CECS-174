@@ -3,7 +3,9 @@ Project 2 - Group 2
 CECS 174 TuTh 12:30
 
 Josiah Rojas: (Project Manager)
-    - Created base class Media and sub classes Book and Video
+    - Created base class Media and sub classes Book and Video (4/25)
+    - Contributed to comments of Media, Book, and Video classes (4/25)
+    - added framework class Member and its basic methods w/o capabilities (4/28)
 April Picato:
 
 Philip Ramirez:
@@ -19,6 +21,9 @@ Miguel Zavala:
 
 # overarching media class, parent for classes Book and Video
 class Media:
+
+    checked_out = []
+
     def __init__(self, title, author, publisher):
         self.title = title
         self.author = author
@@ -39,7 +44,35 @@ class Video(Media):
         self.run_time = run_time
 
 
+# Member class for library members, feel free to code in those check in/out methods
+class Member:
+
+    members = []
+
+    def __init__(self, name):
+        self.name = name
+        # this is a temporary method I'm using to store which books have been checked out,
+        # we may need to use a more global counter, so if you find a better slution feel
+        # free to do that and delete this
+        self.has_books = []
+        self.members.append(self)
+
+    # func to check out books
+    def checkOut(self):
+        # make sure to add the Media item to the Media.checked_out list for inventory purposes
+        pass
+
+    def checkIn(self):
+        pass
+
+    def printCheckedOutItems(self):
+        print(self.has_books)
+
+
 # this is the test case, type test conditions in this function
-# and leave this function at the bottom of the file
+# and leave this function at the bottom of the file. change as
+# desired for personal unit tests
 if __name__ == "__main__":
-    pass
+    gary = Member("Gary")
+    for member in Member.members:
+        print(member.name)
