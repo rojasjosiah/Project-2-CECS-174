@@ -11,7 +11,8 @@ April Picato:
 Philip Ramirez:
 
 Ali Mourad:
-
+    - Created method of adding/subtracting media to and from class Member
+    - Contributed to comments of Members
 Miguel Zavala:
 
 '''
@@ -28,6 +29,17 @@ class Media:
         self.title = title
         self.author = author
         self.publisher = publisher
+
+        # Method is used to add books/videos to be checked out
+        # PS objects should be pass through here
+
+    def addMedia(self):
+        pass
+
+        # Method is used to remove books/videos from library
+
+    def removeMedia(self):
+        pass
 
 
 # class Book child of class Media, creates Book type for library
@@ -64,6 +76,7 @@ class Member:
 
     def checkIn(self):
         pass
+
 
     def printCheckedOutItems(self):
         print(self.has_books)
