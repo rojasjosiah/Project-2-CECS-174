@@ -15,6 +15,7 @@ Ali Mourad:
     - Contributed to comments of Members
 Miguel Zavala:
     -Contributed to Program debugging (5/1)
+    -Contributed to methods of the Member class (5/1)
 
 '''
 
@@ -73,6 +74,8 @@ class Member:
     # func to check out books
     def checkOut(self):
         # make sure to add the Media item to the Media.checked_out list for inventory purposes
+        #I'm not sure if this line is correct but I think this is how to add the media to the checked_out list
+        Media.checked_out.append(self)
         pass
 
     def checkIn(self):
