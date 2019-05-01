@@ -14,6 +14,7 @@ Ali Mourad:
     - Created method of adding/subtracting media to and from class Member
     - Contributed to comments of Members
 Miguel Zavala:
+    -Contributed to Program debugging (5/1)
 
 '''
 
