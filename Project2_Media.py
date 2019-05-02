@@ -16,6 +16,7 @@ Ali Mourad:
 Miguel Zavala:
     -Contributed to Program debugging (5/1)
     -Contributed to methods of the Member class (5/1)
+    -Created method to display stats and contributed to it's print formatting (5/2)
 
 '''
 
@@ -84,6 +85,18 @@ class Member:
 
     def printCheckedOutItems(self):
         print(self.has_books)
+        
+    def displayStats(self):
+        print("******************************************\n")
+        print("Record of library:\n")
+        print("Total number of books = \n") #add on the number of books
+        print("Number of books checked out = \n")
+        print("Total number of videos = \n")
+        print("Total number of members = ", len(members))
+        print("\n")
+        print("\n************************************************************************************\n")
+        print("The following items are checked out of the library:")
+        #insert checked out items + stats
 
 
 # this is the test case, type test conditions in this function
