@@ -1,3 +1,8 @@
+###I'll get to work on this more tonight/tomorrow morning. I uploaded this mainly as a reference.### - PR
+
+
+
+
 # Media is a superclass of Books class and Video class.
 class Media:
 
