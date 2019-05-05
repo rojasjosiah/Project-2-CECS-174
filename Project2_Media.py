@@ -25,7 +25,7 @@ Miguel Zavala:
 
 # overarching media class, parent for classes Book and Video
 class Media:
-
+    library = {}
     checked_out = []
 
     def __init__(self, title, author, publisher):
@@ -36,13 +36,26 @@ class Media:
         # Method is used to add books/videos to be checked out
         # PS objects should be pass through here
 
+    # Multiple of the same media may be added to the library, such as multiple of the same book
     def addMedia(self):
-        pass
+        if self not in Media.library:
+            Media.library[self] = 1
+        elif self in Media.library:
+            Media.library[self] += 1
+        return Media.library
 
         # Method is used to remove books/videos from library
+        # Removing a media removes 1 copy of that media
+        # if no other copy exists then the media is completly removed from library
 
     def removeMedia(self):
-        pass
+        if Media.library[self] == 1:
+            del Media.library[self]
+        elif Media.library[self] > 1:
+            Media.library[self] -= 1
+        elif self not in Media.library:
+            print('Media does not exist')
+        return Media.library
 
 
 # class Book child of class Media, creates Book type for library
