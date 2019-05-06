@@ -6,6 +6,7 @@ Josiah Rojas: (Project Manager)
     - Created base class Media and sub classes Book and Video (4/25)
     - Contributed to comments of Media, Book, and Video classes (4/25)
     - added framework class Member and its basic methods w/o capabilities (4/28)
+    - Edited displayStats function (5/5)
 April Picato:
 
 Philip Ramirez:
@@ -42,11 +43,12 @@ class Media:
             Media.library[self] = 1
         elif self in Media.library:
             Media.library[self] += 1
-        return Media.library
+        # Commenting this line bc it will cause errors if we try to use this function as intended
+        # return Media.library
 
         # Method is used to remove books/videos from library
         # Removing a media removes 1 copy of that media
-        # if no other copy exists then the media is completly removed from library
+        # if no other copy exists then the media is completely removed from library
 
     def removeMedia(self):
         if Media.library[self] == 1:
@@ -55,7 +57,8 @@ class Media:
             Media.library[self] -= 1
         elif self not in Media.library:
             print('Media does not exist')
-        return Media.library
+        # Commenting this line bc it will cause errors if we try to use this function as intended
+        # return Media.library
 
 
 # class Book child of class Media, creates Book type for library
@@ -84,7 +87,6 @@ class Video(Media):
         Video.video_library[title] = video_descr
 
 
-
 # Member class for library members, feel free to code in those check in/out methods
 class Member:
 
@@ -108,21 +110,19 @@ class Member:
     def checkIn(self):
         pass
 
-
     def printCheckedOutItems(self):
         print(self.has_books)
         
-    
-    
-def displayStats(self):
+
+def displayStats():
     print("******************************************")
-    print("\nRecord of library:")
-    print("\nTotal number of books = " + book_count) #add on the number of books
-    print("\nNumber of books checked out = " + book_out)
-    print("\nTotal number of videos = " + video_count)
-    print("\nTotal number of members = ", len(members))
-    print("\n************************************************************************************")
-    print("\nThe following items are checked out of the library:")
+    print("Record of library:")
+    print("Total number of books:", Book.book_count)  # add on the number of books
+    print("Number of books checked out:")
+    print("Total number of videos:", Video.video_count)
+    print("Total number of members:", len(Member.members))
+    print("******************************************")
+    print("The following items are checked out of the library:")
         #insert checked out items + stats
 
 
@@ -130,6 +130,4 @@ def displayStats(self):
 # and leave this function at the bottom of the file. change as
 # desired for personal unit tests
 if __name__ == "__main__":
-    gary = Member("Gary")
-    for member in Member.members:
-        print(member.name)
+    displayStats()
