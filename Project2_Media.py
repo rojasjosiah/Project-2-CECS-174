@@ -21,6 +21,7 @@ Miguel Zavala:
     -Contributed to Program debugging (5/1)
     -Contributed to methods of the Member class (5/1)
     -Created method to display stats and contributed to its print formatting (5/2)
+    -Edited displayStats function(5/6)
 
 '''
 
@@ -136,7 +137,7 @@ def displayStats():
     # for media in sorted(Media.library):
     #     print(media)
     print("Total number of books:", Book.book_count)  # add on the number of books
-    print("Number of books checked out:")
+    print("Number of books checked out:", len(Media.checked_out)
     print("Total number of videos:", Video.video_count)
     print("Total number of members:", len(Member.members))
     print("******************************************")
