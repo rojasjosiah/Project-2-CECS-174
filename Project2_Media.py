@@ -36,7 +36,7 @@ class Media:
         self.title = title
         self.author = author
         self.publisher = publisher
-        Media.addMedia(self.__repr__())
+        Media.addMedia(Media.__repr__(self))
 
         # Method is used to add books/videos to be checked out
         # PS objects should be pass through here
