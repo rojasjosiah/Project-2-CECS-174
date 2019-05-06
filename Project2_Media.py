@@ -60,16 +60,29 @@ class Media:
 
 # class Book child of class Media, creates Book type for library
 class Book(Media):
+    book_count = 0
+    book_library = {}
+
     def __init__(self, title, author, publisher, num_pages):
         super().__init__(title, author, publisher)
         self.num_pages = num_pages
+        Book.book_count += 1
+        book_descr = "Author: %s, Publisher: %s, Run time: %" % (author, publisher, num_pages)
+        Book.book_library[title] = book_descr
 
 
 # class Video child of class Media, creates Video type for library
 class Video(Media):
+    video_count = 0
+    video_library = {}
+
     def __init__(self, title, author, publisher, run_time):
         super().__init__(title, author, publisher)
         self.run_time = run_time
+        Video.video_count += 1
+        video_descr = "Author: %s, Publisher: %s, Run time: %" % (author, publisher, run_time)
+        Video.video_library[title] = video_descr
+
 
 
 # Member class for library members, feel free to code in those check in/out methods
@@ -102,15 +115,14 @@ class Member:
     
     
 def displayStats(self):
-    print("******************************************\n")
-    print("Record of library:\n")
-    print("Total number of books = \n") #add on the number of books
-    print("Number of books checked out = \n")
-    print("Total number of videos = \n")
-    print("Total number of members = ", len(members))
-    print("\n")
-    print("\n************************************************************************************\n")
-    print("The following items are checked out of the library:")
+    print("******************************************")
+    print("\nRecord of library:")
+    print("\nTotal number of books = " + book_count) #add on the number of books
+    print("\nNumber of books checked out = " + book_out)
+    print("\nTotal number of videos = " + video_count)
+    print("\nTotal number of members = ", len(members))
+    print("\n************************************************************************************")
+    print("\nThe following items are checked out of the library:")
         #insert checked out items + stats
 
 
