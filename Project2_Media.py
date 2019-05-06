@@ -14,7 +14,9 @@ Philip Ramirez:
 
 Ali Mourad:
     - Created method of adding/subtracting media to and from class Member
-    - Contributed to comments of Members
+    - Contributed to comments of Members/ Media/ Book/ Video
+    - Created __repr__ method for Media, Book, and Video
+    -
 Miguel Zavala:
     -Contributed to Program debugging (5/1)
     -Contributed to methods of the Member class (5/1)
@@ -34,17 +36,25 @@ class Media:
         self.title = title
         self.author = author
         self.publisher = publisher
-        Media.addMedia(self)
+        Media.addMedia(self.__repr__())
 
         # Method is used to add books/videos to be checked out
         # PS objects should be pass through here
 
+    # Used to represent class object as their attributes instead of memory location
+    def __repr__(self):
+        return "{} {} {}".format(self.title,self.author,self.publisher)
+
     # Multiple of the same media may be added to the library, such as multiple of the same book
     def addMedia(self):
-        if self.title not in Media.library:
-            Media.library[self.title] = 1
-        elif self.title in Media.library:
-            Media.library[self.title] += 1
+        # bool return a boolean value, if the dictionary is empty it returns true
+        if bool(Media.library):
+            for media in Media.library:
+                if self == media:
+                    Media.library[self] += 1
+        else:
+            Media.library[self] = 1
+
         # Commenting this line bc it will cause errors if we try to use this function as intended
         # return Media.library
 
@@ -74,6 +84,9 @@ class Book(Media):
         # changed to descr so wouldn't have to know type of media to use
         self.descr = "Author: %s, Publisher: %s, Number of Pages: %s" % (author, publisher, num_pages)
 
+    # Used to represent class object as their attributes instead of memory location
+    def __repr__(self):
+        return super().__repr__() + "{}".format(self.num_pages)
 
 
 # class Video child of class Media, creates Video type for library
@@ -86,6 +99,9 @@ class Video(Media):
         Video.video_count += 1
         self.descr = "Author: %s, Publisher: %s, Run time: %s" % (author, publisher, run_time)
 
+    # Used to represent class object as their attributes instead of memory location
+    def __repr__(self):
+        return super().__repr__() + "{}".format(self.run_time)
 
 # Member class for library members, feel free to code in those check in/out methods
 class Member:
