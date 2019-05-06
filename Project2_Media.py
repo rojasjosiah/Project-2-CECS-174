@@ -151,5 +151,14 @@ if __name__ == "__main__":
     book1 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
     book2 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
     vid1 = Video("Bookie Boi", "Frank Hernandez", "Random House", 80)
+    
+    Joe = Member("Joe Smith")
+    Jim = Member("Jim Stuart")
+    Joe.checkOut(book1)
+    Joe.checkOut(book2)
+    Jim.checkOut(book1)
+    Joe.checkIn(book1)
+    Joe.printCheckedOutItems()
+    
     displayStats()
     print(Media.library)
