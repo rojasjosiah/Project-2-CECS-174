@@ -13,8 +13,6 @@ the course of multiple days.
 Additionally, be sure to use git pull before you start working 
 so you are working with the most current edits. 
 
-Random line...
-
 Type below here in order to send a message you wish to be seen by all group members:
 
 It was mentioned we might want to use other software for real-time
