@@ -41,10 +41,10 @@ class Media:
 
     # Multiple of the same media may be added to the library, such as multiple of the same book
     def addMedia(self):
-        if self not in Media.library:
-            Media.library[self] = 1
-        elif self in Media.library:
-            Media.library[self] += 1
+        if self.title not in Media.library:
+            Media.library[self.title] = 1
+        elif self.title in Media.library:
+            Media.library[self.title] += 1
         # Commenting this line bc it will cause errors if we try to use this function as intended
         # return Media.library
 
@@ -53,11 +53,11 @@ class Media:
         # if no other copy exists then the media is completely removed from library
 
     def removeMedia(self):
-        if Media.library[self] == 1:
-            del Media.library[self]
-        elif Media.library[self] > 1:
-            Media.library[self] -= 1
-        elif self not in Media.library:
+        if Media.library[self.title] == 1:
+            del Media.library[self.title]
+        elif Media.library[self.title] > 1:
+            Media.library[self.title] -= 1
+        elif self.title not in Media.library:
             print('Media does not exist')
         # Commenting this line bc it will cause errors if we try to use this function as intended
         # return Media.library
