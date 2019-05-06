@@ -36,7 +36,7 @@ class Media:
         self.title = title
         self.author = author
         self.publisher = publisher
-        Media.addMedia(Media.__repr__(self))
+        Media.addMedia(self)
 
         # Method is used to add books/videos to be checked out
         # PS objects should be pass through here
@@ -86,7 +86,7 @@ class Book(Media):
 
     # Used to represent class object as their attributes instead of memory location
     def __repr__(self):
-        return super().__repr__() + "{}".format(self.num_pages)
+        return super().__repr__() + " {}".format(self.num_pages)
 
 
 # class Video child of class Media, creates Video type for library
@@ -101,7 +101,7 @@ class Video(Media):
 
     # Used to represent class object as their attributes instead of memory location
     def __repr__(self):
-        return super().__repr__() + "{}".format(self.run_time)
+        return super().__repr__() + " {}".format(self.run_time)
 
 # Member class for library members, feel free to code in those check in/out methods
 class Member:
