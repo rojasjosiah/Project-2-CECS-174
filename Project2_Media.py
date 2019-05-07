@@ -17,7 +17,7 @@ Philip Ramirez:
     - Contributed to __repr__method for classes
     - Contributed to __init__ and created count for classes
     - Contributed to checkIn/checkOut functions to match expected output
-    - Contributed to displayStates to match desired output
+    - Contributed to displayStates and overall output formatting
 
 Ali Mourad:
     - Created method of adding/subtracting media to and from class Member
