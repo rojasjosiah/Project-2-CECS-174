@@ -141,7 +141,7 @@ def displayStats():
     print("Total number of videos:", Video.video_count)
     print("Total number of members:", len(Member.members))
     print("******************************************")
-    print("The following items are checked out of the library:")
+    print("The following items are checked out of the library:", Media.checked_out)
     # insert checked out items + stats
 
 
