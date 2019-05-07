@@ -9,7 +9,7 @@ CECS 174 TuTh 12:30
 Josiah Rojas: (Project Manager)
     - Created base class Media and sub classes Book and Video
     - Contributed to comments of Media, Book, and Video classes
-    - added framework class Member and its basic methods w/o capabilities
+    - Added framework class Member and its basic methods
     - Edited displayStats function
     - Contributing to editing program for redundancy
     - Contributed to bugfixing
@@ -38,12 +38,11 @@ Miguel Zavala:
 
 '''
 
-# Check README.md file for PSA and personal comments
-
 
 # overarching media class, parent for classes Book and Video
 class Media:
     library = []
+    # checked_out made dict to track who has the media
     checked_out = {}
 
     def __init__(self, title, author, publisher):
