@@ -10,7 +10,7 @@ Josiah Rojas: (Project Manager)
     - Contributing to editing program for redundancy (5/5)
 April Picato:
     - Contributed to adding/removing media components
-    - Contributed to methods od the Book/ Video classes
+    - Contributed to methods of the Book/ Video classes
     - Contributed to methods of the Member class 
     - Contributed to displayStats with basic print statements for desired output
 Philip Ramirez:
@@ -20,10 +20,11 @@ Philip Ramirez:
     - Contributed to displayStates to match desired output
 
 Ali Mourad:
-    - Created method of adding/subtracting media to and from class Member
-    - Contributed to comments of Members/ Media/ Book/ Video
-    - Created __repr__ method for all cl
-    - Contributed to debugging of entire code
+    - Contributed to adding/removing media components
+    - Contributed to comments of all classes
+    - Contributed to methods of Media class
+    - Contributed to methods of book/video classes
+    - Created __repr__ method of all classes
 Miguel Zavala:
     - Contributed to Program debugging (5/1)
     - Contributed to methods of the Member class (5/1)
