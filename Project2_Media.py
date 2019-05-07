@@ -40,7 +40,7 @@ Miguel Zavala:
 # overarching media class, parent for classes Book and Video
 class Media:
     library = []
-    checked_out = []
+    checked_out = {}
 
     def __init__(self, title, author, publisher):
         self.title = title
@@ -115,10 +115,10 @@ class Member:
     def checkOut(self, a_media):
         max_out = 2
         if a_media in Media.checked_out:
-            print("Sorry {}, {} is not available.".format(self, a_media))
+            print("Sorry {}, {} is not available, checked out by {}".format(self, a_media, Media.checked_out[a_media]))
         elif a_media in Media.library:
             if len(self.items_out) < max_out:
-                Media.checked_out.append(a_media)
+                Media.checked_out[a_media] = self
                 self.items_out.append(a_media)
                 print(self, "has checked out:", a_media)
             else:
@@ -131,7 +131,7 @@ class Member:
         if a_media not in Media.checked_out:
             print('Media not yet checked out')
         else:
-            Media.checked_out.remove(a_media)
+            del Media.checked_out[a_media]
             self.items_out.remove(a_media)
             print(self, "checked in:", a_media)
 
