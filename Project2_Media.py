@@ -18,10 +18,10 @@ Ali Mourad:
     - Created __repr__ method for all cl
     - Contributed to debugging of entire code
 Miguel Zavala:
-    -Contributed to Program debugging (5/1)
-    -Contributed to methods of the Member class (5/1)
-    -Created method to display stats and contributed to its print formatting (5/2)
-    -Edited displayStats function(5/6)
+    - Contributed to Program debugging (5/1)
+    - Contributed to methods of the Member class (5/1)
+    - Created method to display stats and contributed to its print formatting (5/2)
+    - Edited displayStats function(5/6)
 
 '''
 
