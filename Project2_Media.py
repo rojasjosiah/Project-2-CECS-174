@@ -142,11 +142,12 @@ if __name__ == "__main__":
     
     Joe = Member("Joe Smith")
     Jim = Member("Jim Stuart")
-    Joe.checkOut(book1)
-    Joe.checkOut(book2)
-    Jim.checkOut(book1)
-    Joe.checkIn(book1)
+          
+    Joe.checkOut()
+    Joe.checkOut()
+    Jim.checkOut()
+    Joe.checkIn()
+          
     Joe.printCheckedOutItems()
-    
     displayStats()
     print(Media.library)
