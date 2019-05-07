@@ -10,9 +10,9 @@ Josiah Rojas: (Project Manager)
     - Contributing to editing program for redundancy (5/5)
 April Picato:
     - Contributed to adding/removing media components
-    - Contributed to Book/ Video classes
-    - Contributed to Member class
-    - Contributed to displayStats
+    - Contributed to methods od the Book/ Video classes
+    - Contributed to methods of the Member class 
+    - Contributed to displayStats with basic print statements for desired output
 Philip Ramirez:
 
 Ali Mourad:
