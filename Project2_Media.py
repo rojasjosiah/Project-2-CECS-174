@@ -168,7 +168,7 @@ if __name__ == "__main__":
     Joe.checkOut(book2)
 
     Joe.printCheckedOutItems()
-#     Jim.printCheckedOutItems()
+    Jim.printCheckedOutItems()
 
     Joe.checkOut(video1)
     Joe.checkIn(book1)
@@ -182,7 +182,7 @@ if __name__ == "__main__":
     print(displayStats())
     
     
-#     print(Media.checked_out)
-#     print(Media.library)
-#     print(Member.member_out)
-#     print(Member.members)
+    print(Media.checked_out)
+    print(Media.library)
+    print(Member.items_out)
+    print(Member.members)
