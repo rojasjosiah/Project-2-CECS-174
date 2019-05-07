@@ -117,7 +117,7 @@ class Member:
     def checkOut(self, a_media):
         max_out = 2
         if a_media in Media.checked_out:
-            print('Media already checked out')
+            print("Sorry {}, {} is not available, checked out by {}".format(self, a_media, "?????"))
         elif a_media in Media.library:
             if len(Member.member_out) < max_out:
                 Media.checked_out.append(a_media)
@@ -134,7 +134,8 @@ class Member:
             print('Media not yet checked out')
         else:
             Media.checked_out.remove(a_media)
-            print(self, " checked in", a_media)
+            Member.member_out.remove(a_media)
+            print(self, "checked in:", a_media)
 
     def printCheckedOutItems(self):
         print("Items checked out by {}:".format(self))
@@ -159,23 +160,6 @@ def displayStats():
 # and leave this function at the bottom of the file. change as
 # desired for personal unit tests
 if __name__ == "__main__":
-    # book1 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
-    # book2 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
-    # vid1 = Video("Bookie Boi", "Frank Hernandez", "Random House", 80)
-    #
-    # Joe = Member("Joe Smith")
-    # Jim = Member("Jim Stuart")
-    #
-    # Joe.checkOut(book1)
-    # # Joe.checkOut()
-    # Jim.checkOut(book1)
-    # # Joe.checkIn()
-    #
-    # # Joe.printCheckedOutItems()
-    # # displayStats()
-    # # print(Media.library)
-    #
-    #
     book1 = Book("Python for Beginners", "Unknown", "Pub?", 0)
     book2 = Book("Python for Kids", "Jason R. Briggs", "Pub?", 0)
 
@@ -191,6 +175,13 @@ if __name__ == "__main__":
     Jim.printCheckedOutItems()
 
     Joe.checkOut(video1)
+    Joe.checkIn(book1)
+
+    Jim.checkOut(book2)
+    Joe.checkIn(book2)
+
+    Jim.checkOut(video1)
+    Jim.checkOut(book1)
 
     print(Media.checked_out)
     print(Media.library)
