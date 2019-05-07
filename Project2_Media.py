@@ -17,7 +17,7 @@ Philip Ramirez:
     - Contributed to __repr__method for classes
     - Contributed to __init__ and created count for classes
     - Contributed to checkIn/checkOut functions to match expected output
-    - Contributed to ...
+    - Contributed to displayStates to match desired output
 
 Ali Mourad:
     - Created method of adding/subtracting media to and from class Member
@@ -153,7 +153,7 @@ def displayStats():
     print("Total number of videos:", Video.video_count)
     print("Total number of members:", len(Member.members))
     print("******************************************")
-    print("The following items are checked out of the library:", Media.checked_out)
+    print("The following items are checked out of the library:", *Media.checked_out, sep='\n')
     # insert checked out items + stats
 
 
