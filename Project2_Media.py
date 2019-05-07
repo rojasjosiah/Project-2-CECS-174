@@ -139,7 +139,8 @@ class Member:
 
     def printCheckedOutItems(self):
         print("Items checked out by {}:".format(self))
-        print(*Member.member_out, sep='\n')
+        for i in range(len(Member.member_out)):
+            print('\t', Member.member_out[i])
 
 
 def displayStats():
