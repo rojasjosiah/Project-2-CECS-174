@@ -9,7 +9,7 @@ Josiah Rojas: (Project Manager)
     - Edited displayStats function (5/5)
     - Contributing to editing program for redundancy (5/5)
 April Picato:
-
+    - Contributed to adding/removing media components
 Philip Ramirez:
 
 Ali Mourad:
