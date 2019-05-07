@@ -19,7 +19,7 @@ Philip Ramirez:
     - Contributed to __init__ and created count for classes
     - Contributed to checkIn/checkOut functions to match expected output
     - Contributed to displayStates and overall output formatting
-
+    - Fixed member items handling
 Ali Mourad:
     - Contributed to adding/removing media components
     - Contributed to comments of all classes
