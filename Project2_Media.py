@@ -100,11 +100,11 @@ class Video(Media):
 # Member class for library members, feel free to code in those check in/out methods
 class Member:
     members = []
-    items_out = []
     
     def __init__(self, name):
         self.name = name
         self.members.append(self)
+        self.items_out = []
 
     # Allows for representation of the object by a string
     def __repr__(self):
@@ -117,9 +117,9 @@ class Member:
         if a_media in Media.checked_out:
             print("Sorry {}, {} is not available.".format(self, a_media))
         elif a_media in Media.library:
-            if len(Member.items_out) < max_out:
+            if len(self.items_out) < max_out:
                 Media.checked_out.append(a_media)
-                Member.items_out.append(a_media)
+                self.items_out.append(a_media)
                 print(self, "has checked out:", a_media)
             else:
                 print("{} has reached the maximum number ({}) of borrowed items, "
@@ -132,13 +132,16 @@ class Member:
             print('Media not yet checked out')
         else:
             Media.checked_out.remove(a_media)
-            Member.items_out.remove(a_media)
+            self.items_out.remove(a_media)
             print(self, "checked in:", a_media)
 
     def printCheckedOutItems(self):
         print("Items checked out by {}:".format(self))
-        for i in range(len(Member.items_out)):
-            print('\t', Member.items_out[i])
+        if len(self.items_out) > 0:
+            for i in range(len(self.items_out)):
+                print('\t', self.items_out[i])
+        else:
+            print("\tNo items checked out.")
 
 
 def displayStats():
@@ -170,16 +173,16 @@ if __name__ == "__main__":
     Joe.printCheckedOutItems()
     Jim.printCheckedOutItems()
 
-    Joe.checkOut(video1)
-    Joe.checkIn(book1)
-
-    Jim.checkOut(book2)
-    Joe.checkIn(book2)
-
-    Jim.checkOut(video1)
-    Jim.checkOut(book1)
-
-    displayStats()
+    # Joe.checkOut(video1)
+    # Joe.checkIn(book1)
+    #
+    # Jim.checkOut(book2)
+    # Joe.checkIn(book2)
+    #
+    # Jim.checkOut(video1)
+    # Jim.checkOut(book1)
+    #
+    # displayStats()
 
     # print(Media.checked_out)
     # print(Media.library)
