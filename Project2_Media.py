@@ -1,3 +1,7 @@
+# Project2_Media
+
+# Project Members: Josiah Rojas, April Picato, Philip Ramirez, Ali Mourad, Miguel Zavala
+
 '''
 Project 2 - Group 2
 CECS 174 TuTh 12:30
