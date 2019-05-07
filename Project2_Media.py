@@ -50,8 +50,8 @@ class Media:
         # PS objects should be pass through here
 
     # Used to represent class object as their attributes instead of memory location
-    def __repr__(self):
-        return "{} {} {}".format(self.title,self.author,self.publisher)
+#     def __repr__(self):
+#         return "{} {} {}".format(self.title,self.author,self.publisher)
 
     # Multiple of the same media may be added to the library, such as multiple of the same book
     def addMedia(self):
