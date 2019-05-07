@@ -30,7 +30,7 @@ Miguel Zavala:
 
 # overarching media class, parent for classes Book and Video
 class Media:
-    library = {}
+    library = []
     checked_out = []
 
     def __init__(self, title, author, publisher):
@@ -48,31 +48,18 @@ class Media:
 
     # Multiple of the same media may be added to the library, such as multiple of the same book
     def addMedia(self):
-        # bool return a boolean value, if the dictionary is empty it returns true
-        if bool(Media.library):
-            for media in Media.library:
-                if self == media:
-                    Media.library[self] += 1
-        else:
-            Media.library[self] = 1
 
-        # Commenting this line bc it will cause errors if we try to use this function as intended
-        # return Media.library
+        Media.library.append(self)
 
-        # Method is used to remove books/videos from library
-        # Removing a media removes 1 copy of that media
-        # if no other copy exists then the media is completely removed from library
+    # Method is used to remove books/videos from library
+    # Removing a media removes 1 copy of that media
+    # if no other copy exists then the media is completely removed from library
 
     def removeMedia(self):
-        if Media.library[self.title] == 1:
-            del Media.library[self.title]
-        elif Media.library[self.title] > 1:
-            Media.library[self.title] -= 1
-        elif self.title not in Media.library:
+        if self in Media.library:
+            Media.library.remove(self)
+        else:
             print('Media does not exist')
-        # Commenting this line bc it will cause errors if we try to use this function as intended
-        # return Media.library
-
 
 # class Book child of class Media, creates Book type for library
 class Book(Media):
@@ -137,7 +124,7 @@ def displayStats():
     # for media in sorted(Media.library):
     #     print(media)
     print("Total number of books:", Book.book_count)  # add on the number of books
-    print("Number of books checked out:", len(Media.checked_out)
+    print("Number of books checked out:", len(Media.checked_out))
     print("Total number of videos:", Video.video_count)
     print("Total number of members:", len(Member.members))
     print("******************************************")
