@@ -14,7 +14,7 @@ April Picato:
     - Contributed to methods of the Member class 
     - Contributed to displayStats with basic print statements for desired output
 Philip Ramirez:
-    - Contributed to __repr__method for classes
+    - Contributed to __repr__method and Member class formatting
     - Contributed to __init__ and created count for classes
     - Contributed to checkIn/checkOut functions to match expected output
     - Contributed to displayStates and overall output formatting
@@ -99,14 +99,10 @@ class Video(Media):
 # Member class for library members, feel free to code in those check in/out methods
 class Member:
     members = []
-    member_out = []
-
+    items_out = []
+    
     def __init__(self, name):
         self.name = name
-        # this is a temporary method I'm using to store which books have been checked out,
-        # we may need to use a more global counter, so if you find a better solution feel
-        # free to do that and delete this
-        self.has_books = []
         self.members.append(self)
 
     # Allows for representation of the object by a string
@@ -120,9 +116,9 @@ class Member:
         if a_media in Media.checked_out:
             print("Sorry {}, {} is not available, checked out by {}".format(self, a_media, "?????"))
         elif a_media in Media.library:
-            if len(Member.member_out) < max_out:
+            if len(Member.items_out) < max_out:
                 Media.checked_out.append(a_media)
-                Member.member_out.append(a_media)
+                Member.items_out.append(a_media)
                 print(self, "has checked out:", a_media)
             else:
                 print("{} has reached the maximum number ({}) of borrowed items, "
@@ -135,13 +131,13 @@ class Member:
             print('Media not yet checked out')
         else:
             Media.checked_out.remove(a_media)
-            Member.member_out.remove(a_media)
+            Member.items_out.remove(a_media)
             print(self, "checked in:", a_media)
 
     def printCheckedOutItems(self):
         print("Items checked out by {}:".format(self))
-        for i in range(len(Member.member_out)):
-            print('\t', Member.member_out[i])
+        for i in range(len(Member.items_out)):
+            print('\t', Member.items_out[i])
 
 
 def displayStats():
