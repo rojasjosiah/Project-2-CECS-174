@@ -173,18 +173,17 @@ if __name__ == "__main__":
     Joe.printCheckedOutItems()
     Jim.printCheckedOutItems()
 
-    # Joe.checkOut(video1)
-    # Joe.checkIn(book1)
-    #
-    # Jim.checkOut(book2)
-    # Joe.checkIn(book2)
-    #
-    # Jim.checkOut(video1)
-    # Jim.checkOut(book1)
-    #
-    # displayStats()
-
+    Joe.checkOut(video1)
+    Joe.checkIn(book1)
+    
+    Jim.checkOut(book2)
+    Joe.checkIn(book2)
+    
+    Jim.checkOut(video1)
+    Jim.checkOut(book1)
+    
+    displayStats()
+    
     # print(Media.checked_out)
     # print(Media.library)
-    # print(Member.items_out)
     # print(Member.members)
