@@ -81,8 +81,7 @@ class Book(Media):
 
     # Used to represent class object as their attributes instead of memory location
     def __repr__(self):
-        return super().__repr__() + " {}".format(self.num_pages)
-
+        return "Book--> {} written by {}".format(self.title, self.author)
 
 # class Video child of class Media, creates Video type for library
 class Video(Media):
@@ -94,9 +93,9 @@ class Video(Media):
         Video.video_count += 1
         self.descr = "Author: %s, Publisher: %s, Run time: %s" % (author, publisher, run_time)
 
-    # Used to represent class object as their attributes instead of memory location
+    # # Used to represent class object as their attributes instead of memory location
     def __repr__(self):
-        return super().__repr__() + " {}".format(self.run_time)
+        return "Video--> {} created by {}".format(self.title, self.author)
 
 # Member class for library members, feel free to code in those check in/out methods
 class Member:
@@ -135,6 +134,7 @@ class Member:
              Media.checked_out.remove(a_media)
              print(self," checked in", a_media)
     def printCheckedOutItems(self):
+        print("Items checked out by {}".format(self))
         print(self.has_books)
         
 
@@ -156,18 +156,33 @@ def displayStats():
 # and leave this function at the bottom of the file. change as
 # desired for personal unit tests
 if __name__ == "__main__":
-    book1 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
-    book2 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
-    vid1 = Video("Bookie Boi", "Frank Hernandez", "Random House", 80)
+#     book1 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
+#     book2 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
+#     vid1 = Video("Bookie Boi", "Frank Hernandez", "Random House", 80)
     
+#     Joe = Member("Joe Smith")
+#     Jim = Member("Jim Stuart")
+          
+#     Joe.checkOut(book1)
+#     # Joe.checkOut()
+#     Jim.checkOut(book1)
+#     # Joe.checkIn()
+          
+#     # Joe.printCheckedOutItems()
+#     # displayStats()
+#     # print(Media.library)
+    
+    #Expected Output Test (WIP)
+    book1 = Book("Python for Beginners", "Unknown", "Pub?", "Pages?")
+    book2 = Book("Python for Kids", "Jason R. Briggs", "Pub?", "Pages?")
+
     Joe = Member("Joe Smith")
     Jim = Member("Jim Stuart")
-          
+
     Joe.checkOut(book1)
-    # Joe.checkOut()
-    Jim.checkOut(book1)
-    # Joe.checkIn()
-          
-    # Joe.printCheckedOutItems()
-    # displayStats()
-    # print(Media.library)
+    Jim.checkOut(book2)
+
+    Joe.printCheckedOutItems()
+    
+    
+    
