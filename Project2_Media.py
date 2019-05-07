@@ -3,11 +3,12 @@ Project 2 - Group 2
 CECS 174 TuTh 12:30
 
 Josiah Rojas: (Project Manager)
-    - Created base class Media and sub classes Book and Video (4/25)
-    - Contributed to comments of Media, Book, and Video classes (4/25)
-    - added framework class Member and its basic methods w/o capabilities (4/28)
-    - Edited displayStats function (5/5)
-    - Contributing to editing program for redundancy (5/5)
+    - Created base class Media and sub classes Book and Video
+    - Contributed to comments of Media, Book, and Video classes
+    - added framework class Member and its basic methods w/o capabilities
+    - Edited displayStats function
+    - Contributing to editing program for redundancy
+    - Contributed to bugfixing
 April Picato:
     - Contributed to adding/removing media components
     - Contributed to methods of the Book/ Video classes
@@ -26,10 +27,10 @@ Ali Mourad:
     - Contributed to methods of book/video classes
     - Created __repr__ method of all classes
 Miguel Zavala:
-    - Contributed to Program debugging (5/1)
-    - Contributed to methods of the Member class (5/1)
-    - Created method to display stats and contributed to its print formatting (5/2)
-    - Edited displayStats function(5/6)
+    - Contributed to Program debugging
+    - Contributed to methods of the Member class
+    - Created method to display stats and contributed to its print formatting
+    - Edited displayStats function
 
 '''
 
@@ -114,7 +115,7 @@ class Member:
     def checkOut(self, a_media):
         max_out = 2
         if a_media in Media.checked_out:
-            print("Sorry {}, {} is not available, checked out by {}".format(self, a_media, "?????"))
+            print("Sorry {}, {} is not available.".format(self, a_media))
         elif a_media in Media.library:
             if len(Member.items_out) < max_out:
                 Media.checked_out.append(a_media)
@@ -151,7 +152,6 @@ def displayStats():
     print("The following items are checked out of the library:", *Media.checked_out, sep='\n')
  
 
-
 # this is the test case, type test conditions in this function
 # and leave this function at the bottom of the file. change as
 # desired for personal unit tests
@@ -179,10 +179,9 @@ if __name__ == "__main__":
     Jim.checkOut(video1)
     Jim.checkOut(book1)
 
-    print(displayStats())
-    
-    
-    print(Media.checked_out)
-    print(Media.library)
-    print(Member.items_out)
-    print(Member.members)
+    displayStats()
+
+    # print(Media.checked_out)
+    # print(Media.library)
+    # print(Member.items_out)
+    # print(Member.members)
