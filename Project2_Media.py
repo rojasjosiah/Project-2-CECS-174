@@ -14,10 +14,10 @@ April Picato:
     - Contributed to methods of the Member class 
     - Contributed to displayStats with basic print statements for desired output
 Philip Ramirez:
-    - Edited __repr__method for classes
-    - Conributed to comments on..
-    - Contributed to __init__ and count for classes
-    - Contributed to expected output
+    - Contributed to __repr__method for classes
+    - Contributed to __init__ and created count for classes
+    - Contributed to checkIn/checkOut functions to match expected output
+    - Contributed to ...
 
 Ali Mourad:
     - Created method of adding/subtracting media to and from class Member
