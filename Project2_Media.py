@@ -141,7 +141,7 @@ class Member:
             for i in range(len(self.items_out)):
                 print('\t', self.items_out[i])
         else:
-            print("\tNo items checked out.")
+            print("\t No items checked out.")
 
 
 def displayStats():
