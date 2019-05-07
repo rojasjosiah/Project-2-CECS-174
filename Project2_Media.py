@@ -49,13 +49,8 @@ class Media:
         # Method is used to add books/videos to be checked out
         # PS objects should be pass through here
 
-    # Used to represent class object as their attributes instead of memory location
-#     def __repr__(self):
-#         return "{} {} {}".format(self.title,self.author,self.publisher)
-
     # Multiple of the same media may be added to the library, such as multiple of the same book
     def addMedia(self):
-
         Media.library.append(self)
 
     # Method is used to remove books/videos from library
@@ -68,6 +63,7 @@ class Media:
         else:
             print('Media does not exist')
 
+
 # class Book child of class Media, creates Book type for library
 class Book(Media):
     book_count = 0
@@ -77,11 +73,12 @@ class Book(Media):
         self.num_pages = num_pages
         Book.book_count += 1
         # changed to descr so wouldn't have to know type of media to use
-        self.descr = "Author: %s, Publisher: %s, Number of Pages: %s" % (author, publisher, num_pages)
+        self.descr = "Author: %s, Publisher: %s, Number of Pages: %d" % (author, publisher, num_pages)
 
     # Used to represent class object as their attributes instead of memory location
     def __repr__(self):
         return "Book--> {} written by {}".format(self.title, self.author)
+
 
 # class Video child of class Media, creates Video type for library
 class Video(Media):
@@ -89,23 +86,24 @@ class Video(Media):
 
     def __init__(self, title, author, publisher, run_time):
         super().__init__(title, author, publisher)
-        self.run_time = run_time
+        self.run_time = "{} mins video".format(run_time)
         Video.video_count += 1
-        self.descr = "Author: %s, Publisher: %s, Run time: %s" % (author, publisher, run_time)
+        self.descr = "Author: %s, Publisher: %s, Run time: %d minutes" % (author, publisher, run_time)
 
-    # # Used to represent class object as their attributes instead of memory location
+    # Used to represent class object as their attributes instead of memory location
     def __repr__(self):
-        return "Video--> {} created by {}".format(self.title, self.author)
+        return "Video--> {} {} created by {}".format(self.run_time, self.title, self.author)
+
 
 # Member class for library members, feel free to code in those check in/out methods
 class Member:
-
     members = []
+    member_out = []
 
     def __init__(self, name):
         self.name = name
         # this is a temporary method I'm using to store which books have been checked out,
-        # we may need to use a more global counter, so if you find a better slution feel
+        # we may need to use a more global counter, so if you find a better solution feel
         # free to do that and delete this
         self.has_books = []
         self.members.append(self)
@@ -113,30 +111,35 @@ class Member:
     # Allows for representation of the object by a string
     def __repr__(self):
         return "{}".format(self.name)
-    
+
     # func to check out media
     # Passes objects from Media through Members
     def checkOut(self, a_media):
-
+        max_out = 2
         if a_media in Media.checked_out:
             print('Media already checked out')
         elif a_media in Media.library:
-            Media.checked_out.append(a_media)
-            print(self,"checked out", a_media)
+            if len(Member.member_out) < max_out:
+                Media.checked_out.append(a_media)
+                Member.member_out.append(a_media)
+                print(self, "has checked out:", a_media)
+            else:
+                print("{} has reached the maximum number ({}) of borrowed items, "
+                      "so can't check out: {}".format(self, max_out, a_media))
         else:
             print('Media does not exist')
 
     def checkIn(self, a_media):
+        if a_media not in Media.checked_out:
+            print('Media not yet checked out')
+        else:
+            Media.checked_out.remove(a_media)
+            print(self, " checked in", a_media)
 
-         if a_media not in Media.checked_out:
-             print('Media not yet checked out')
-         else:
-             Media.checked_out.remove(a_media)
-             print(self," checked in", a_media)
     def printCheckedOutItems(self):
-        print("Items checked out by {}".format(self))
-        print(self.has_books)
-        
+        print("Items checked out by {}:".format(self))
+        print(*Member.member_out, sep='\n')
+
 
 def displayStats():
     print("******************************************")
@@ -156,33 +159,40 @@ def displayStats():
 # and leave this function at the bottom of the file. change as
 # desired for personal unit tests
 if __name__ == "__main__":
-#     book1 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
-#     book2 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
-#     vid1 = Video("Bookie Boi", "Frank Hernandez", "Random House", 80)
-    
-#     Joe = Member("Joe Smith")
-#     Jim = Member("Jim Stuart")
-          
-#     Joe.checkOut(book1)
-#     # Joe.checkOut()
-#     Jim.checkOut(book1)
-#     # Joe.checkIn()
-          
-#     # Joe.printCheckedOutItems()
-#     # displayStats()
-#     # print(Media.library)
-    
-    #Expected Output Test (WIP)
-    book1 = Book("Python for Beginners", "Unknown", "Pub?", "Pages?")
-    book2 = Book("Python for Kids", "Jason R. Briggs", "Pub?", "Pages?")
+    # book1 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
+    # book2 = Book("Bookie Boi", "Frank Hernandez", "Random House", 6)
+    # vid1 = Video("Bookie Boi", "Frank Hernandez", "Random House", 80)
+    #
+    # Joe = Member("Joe Smith")
+    # Jim = Member("Jim Stuart")
+    #
+    # Joe.checkOut(book1)
+    # # Joe.checkOut()
+    # Jim.checkOut(book1)
+    # # Joe.checkIn()
+    #
+    # # Joe.printCheckedOutItems()
+    # # displayStats()
+    # # print(Media.library)
+    #
+    #
+    book1 = Book("Python for Beginners", "Unknown", "Pub?", 0)
+    book2 = Book("Python for Kids", "Jason R. Briggs", "Pub?", 0)
+
+    video1 = Video("Tom and Jerry", "W.Hannah, J.Barbara", "Pub?", 30)
 
     Joe = Member("Joe Smith")
     Jim = Member("Jim Stuart")
 
     Joe.checkOut(book1)
-    Jim.checkOut(book2)
+    Joe.checkOut(book2)
 
     Joe.printCheckedOutItems()
-    
-    
-    
+    Jim.printCheckedOutItems()
+
+    Joe.checkOut(video1)
+
+    print(Media.checked_out)
+    print(Media.library)
+    print(Member.member_out)
+    print(Member.members)
