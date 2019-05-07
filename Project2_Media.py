@@ -15,8 +15,8 @@ Philip Ramirez:
 Ali Mourad:
     - Created method of adding/subtracting media to and from class Member
     - Contributed to comments of Members/ Media/ Book/ Video
-    - Created __repr__ method for Media, Book, and Video
-    -
+    - Created __repr__ method for all cl
+    - Contributed to debugging of entire code
 Miguel Zavala:
     -Contributed to Program debugging (5/1)
     -Contributed to methods of the Member class (5/1)
@@ -104,16 +104,29 @@ class Member:
         self.has_books = []
         self.members.append(self)
 
-    # func to check out books
-    def checkOut(self):
-        # make sure to add the Media item to the Media.checked_out list for inventory purposes
-        # I'm not sure if this line is correct but I think this is how to add the media to the checked_out list
-        Media.checked_out.append(self)
-        pass
+    # Allows for representation of the object by a string
+    def __repr__(self):
+        return "{}".format(self.name)
+    
+    # func to check out media
+    # Passes objects from Media through Members
+    def checkOut(self, a_media):
 
-    def checkIn(self):
-        pass
+        if a_media in Media.checked_out:
+            print('Media already checked out')
+        elif a_media in Media.library:
+            Media.checked_out.append(a_media)
+            print(self,"checked out", a_media)
+        else:
+            print('Media does not exist')
 
+    def checkIn(self, a_media):
+
+         if a_media not in Media.checked_out:
+             print('Media not yet checked out')
+         else:
+             Media.checked_out.remove(a_media)
+             print(self," checked in", a_media)
     def printCheckedOutItems(self):
         print(self.has_books)
         
@@ -143,11 +156,11 @@ if __name__ == "__main__":
     Joe = Member("Joe Smith")
     Jim = Member("Jim Stuart")
           
-    Joe.checkOut()
-    Joe.checkOut()
-    Jim.checkOut()
-    Joe.checkIn()
+    Joe.checkOut(book1)
+    # Joe.checkOut()
+    Jim.checkOut(book1)
+    # Joe.checkIn()
           
-    Joe.printCheckedOutItems()
-    displayStats()
-    print(Media.library)
+    # Joe.printCheckedOutItems()
+    # displayStats()
+    # print(Media.library)
