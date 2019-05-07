@@ -146,15 +146,13 @@ class Member:
 def displayStats():
     print("******************************************")
     print("Record of library:")
-    # for media in sorted(Media.library):
-    #     print(media)
-    print("Total number of books:", Book.book_count)  # add on the number of books
+    print("Total number of books:", Book.book_count)
     print("Number of books checked out:", len(Media.checked_out))
     print("Total number of videos:", Video.video_count)
     print("Total number of members:", len(Member.members))
     print("******************************************")
     print("The following items are checked out of the library:", *Media.checked_out, sep='\n')
-    # insert checked out items + stats
+ 
 
 
 # this is the test case, type test conditions in this function
@@ -173,7 +171,7 @@ if __name__ == "__main__":
     Joe.checkOut(book2)
 
     Joe.printCheckedOutItems()
-    Jim.printCheckedOutItems()
+#     Jim.printCheckedOutItems()
 
     Joe.checkOut(video1)
     Joe.checkIn(book1)
@@ -184,7 +182,10 @@ if __name__ == "__main__":
     Jim.checkOut(video1)
     Jim.checkOut(book1)
 
-    print(Media.checked_out)
-    print(Media.library)
-    print(Member.member_out)
-    print(Member.members)
+    print(displayStats())
+    
+    
+#     print(Media.checked_out)
+#     print(Media.library)
+#     print(Member.member_out)
+#     print(Member.members)
